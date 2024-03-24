@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 class Program2
 {
-    static void Work2()
+    public void Work2()
     {
         #region Work 2
         Dictionary<string, string> phone = new Dictionary<string, string>();
