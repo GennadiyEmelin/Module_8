@@ -45,6 +45,7 @@ internal class Program
         string? fio = Console.ReadLine();
 
         phone.Add(phoneNumber, fio);
+        Console.WriteLine("Абонент успешно записан");
 
         while (true)
         {
@@ -71,10 +72,18 @@ internal class Program
             }
         }
 
-        //foreach (KeyValuePair<string, string> pair in phone)
-        //{
-        //    Console.WriteLine("Номер телефона: " + pair.Key + "ФИО: " + pair.Value);
-        //}
+        Console.WriteLine("Введите номер для поиска абонента:");
+        string? phonePoisk = Console.ReadLine();
+
+        if(phone.TryGetValue(phonePoisk, out fio))
+        {
+            Console.WriteLine($"ФИО абонента: {fio}");
+        }
+        else
+        {
+            Console.WriteLine("Нет абонента по данному номеру");
+        }
+        Console.ReadLine();
         #endregion
     }
 }
