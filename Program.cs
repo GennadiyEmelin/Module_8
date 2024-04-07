@@ -39,22 +39,31 @@ internal class Program
         #region Work 2
         Dictionary<string, string> phone = new Dictionary<string, string>();
 
+        Console.WriteLine("Введите номер Абонента");
         string? phoneNumber = Console.ReadLine();
+        Console.WriteLine("Введите ФИО абонента");
         string? fio = Console.ReadLine();
 
         phone.Add(phoneNumber, fio);
 
         while (true)
         {
-            if (phoneNumber != null)
+            if (phoneNumber != null & fio != null)
             {
+                Console.WriteLine("Введите номер телефона");
                 phoneNumber = Console.ReadLine();
-                if (phoneNumber == null)
+                if (string.IsNullOrEmpty(phoneNumber))
                 {
                     break;
                 }
+                Console.WriteLine("Введите ФИО абонента");
                 fio = Console.ReadLine();
+                if (string.IsNullOrEmpty(fio))
+                {
+                    break;
+                }
                 phone.Add(phoneNumber, fio);
+                Console.WriteLine("Абонент успешно записан");
             }
             else
             {
@@ -62,10 +71,10 @@ internal class Program
             }
         }
 
-        foreach (KeyValuePair<string, string> pair in phone)
-        {
-            Console.WriteLine("Номер телефона: " + pair.Key + "ФИО" + pair.Value);
-        }
+        //foreach (KeyValuePair<string, string> pair in phone)
+        //{
+        //    Console.WriteLine("Номер телефона: " + pair.Key + "ФИО: " + pair.Value);
+        //}
         #endregion
     }
 }
