@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
+using System.Xml.Linq;
 
 internal class Program
 {
@@ -35,18 +36,11 @@ internal class Program
             Console.WriteLine(list[i]);
         }
         #endregion
-
+        Console.Clear();
         #region Work 2
         Console.WriteLine("Задание 2");
         Dictionary<string, string> phone = new Dictionary<string, string>();
 
-        //Console.WriteLine("Введите номер Абонента");
-        //string? phoneNumber = Console.ReadLine();
-        //Console.WriteLine("Введите ФИО абонента");
-        //string? fio = Console.ReadLine();
-
-        //phone.Add(phoneNumber, fio);
-        //Console.WriteLine("Абонент успешно записан");
         string? fio;
         string? phoneNumber;
         while (true)
@@ -80,7 +74,7 @@ internal class Program
         }
         Console.ReadLine();
         #endregion
-
+        Console.Clear();
         #region Work3
         Console.WriteLine("Задание 3");
         HashSet<string> strings = new HashSet<string>();
@@ -107,6 +101,40 @@ internal class Program
         {
             Console.WriteLine(s);
         }
+        #endregion
+        Console.Clear();
+        #region Work 4
+        Console.WriteLine("Задание 4");
+
+        Console.WriteLine("Введите ФИО");
+        string? FIO = Console.ReadLine();
+        Console.WriteLine("Введите название улицы");
+        string? street = Console.ReadLine();
+        Console.WriteLine("Введите номер дома");
+        string? houseNumber = Console.ReadLine();
+        Console.WriteLine("Введите номер квартиры");
+        string? flatNumber = Console.ReadLine();
+        Console.WriteLine("Введите номер мобильного телефона");
+        string? mobilePhone = Console.ReadLine();
+        Console.WriteLine("Введите номер домашнего телефона");
+        string? flatPhone = Console.ReadLine();
+
+        XElement Person = new XElement("Person");
+        XElement Address = new XElement("Addres");
+        XElement Street = new XElement("Street", street);
+        XElement HouseNumber = new XElement("HouseNumber", houseNumber);
+        XElement Phones = new XElement("Phones");
+        XElement FlatNumber = new XElement("FlatNumber", flatNumber);
+        XElement MobilePhone = new XElement("MobilePhone", mobilePhone);
+        XElement FlatPhone = new XElement("FlatPhone", flatPhone);
+
+        XAttribute namePerson = new XAttribute("name", FIO);
+
+        Address.Add(Street, HouseNumber, FlatNumber);
+        Phones.Add(MobilePhone, FlatPhone);
+        Person.Add(namePerson, Address, Phones);
+
+        Person.Save("Person.xml");
 
         #endregion
     }
