@@ -40,37 +40,31 @@ internal class Program
         Console.WriteLine("Задание 2");
         Dictionary<string, string> phone = new Dictionary<string, string>();
 
-        Console.WriteLine("Введите номер Абонента");
-        string? phoneNumber = Console.ReadLine();
-        Console.WriteLine("Введите ФИО абонента");
-        string? fio = Console.ReadLine();
+        //Console.WriteLine("Введите номер Абонента");
+        //string? phoneNumber = Console.ReadLine();
+        //Console.WriteLine("Введите ФИО абонента");
+        //string? fio = Console.ReadLine();
 
-        phone.Add(phoneNumber, fio);
-        Console.WriteLine("Абонент успешно записан");
-
+        //phone.Add(phoneNumber, fio);
+        //Console.WriteLine("Абонент успешно записан");
+        string? fio;
+        string? phoneNumber;
         while (true)
         {
-            if (phoneNumber != null & fio != null)
-            {
-                Console.WriteLine("Введите номер телефона");
-                phoneNumber = Console.ReadLine();
-                if (string.IsNullOrEmpty(phoneNumber))
-                {
-                    break;
-                }
-                Console.WriteLine("Введите ФИО абонента");
-                fio = Console.ReadLine();
-                if (string.IsNullOrEmpty(fio))
-                {
-                    break;
-                }
-                phone.Add(phoneNumber, fio);
-                Console.WriteLine("Абонент успешно записан");
-            }
-            else
+            Console.WriteLine("Введите номер Абонента");
+            phoneNumber = Console.ReadLine();
+            if (string.IsNullOrEmpty(phoneNumber))
             {
                 break;
             }
+            Console.WriteLine("Введите ФИО абонента");
+            fio = Console.ReadLine();
+            if (string.IsNullOrEmpty(fio))
+            {
+                break;
+            }
+            phone.Add(phoneNumber, fio);
+            Console.WriteLine("Абонент успешно записан");
         }
 
         Console.WriteLine("Введите номер для поиска абонента:");
@@ -90,8 +84,6 @@ internal class Program
         #region Work3
         Console.WriteLine("Задание 3");
         HashSet<string> strings = new HashSet<string>();
-        //Console.WriteLine("Введите число для добавления в список");
-        //string? value = Console.ReadLine();
         while (true)
         {
             Console.WriteLine("Введите число для добавления в список");
