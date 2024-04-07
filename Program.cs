@@ -37,6 +37,7 @@ internal class Program
         #endregion
 
         #region Work 2
+        Console.WriteLine("Задание 2");
         Dictionary<string, string> phone = new Dictionary<string, string>();
 
         Console.WriteLine("Введите номер Абонента");
@@ -84,6 +85,37 @@ internal class Program
             Console.WriteLine("Нет абонента по данному номеру");
         }
         Console.ReadLine();
+        #endregion
+
+        #region Work3
+        Console.WriteLine("Задание 3");
+        HashSet<string> strings = new HashSet<string>();
+        //Console.WriteLine("Введите число для добавления в список");
+        //string? value = Console.ReadLine();
+        while (true)
+        {
+            Console.WriteLine("Введите число для добавления в список");
+            string? value = Console.ReadLine();
+            if (string.IsNullOrEmpty(value))
+            {
+                break;
+            }
+            else if (strings.Contains(value))
+            {
+                Console.WriteLine("Такое число уже существует");
+            }
+            else
+            {
+                strings.Add(value);
+                Console.WriteLine("Число успешно записано");
+            }
+        }
+        Console.WriteLine("Список добавленных чисел: ");
+        foreach (string s in strings)
+        {
+            Console.WriteLine(s);
+        }
+
         #endregion
     }
 }
